@@ -1,0 +1,41 @@
+{% extends "layout.html" %} 
+
+
+{% block title %} 
+VieW User
+{% endblock title %}
+
+{% block topButtons %}
+<div class=" mb-3">
+    <a href="{% url 'user_board' %}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock topButtons %}
+
+
+{% block content %}
+
+<div class="card" style="width: 20rem;">
+    
+    <div class="card-body">
+      <h5 class="card-title">{{ user.name }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Age: {{user.age}}</li>
+      <li class="list-group-item">Address: {{user.address}}</li>
+      <li class="list-group-item">Additional Details: {{user.additional_details}}</li>
+      <li class="list-group-item">Date Joined: {{user.date}}</li>
+    </ul>
+    <div class="card-body">
+        <div class="d-flex justify-content-between ">
+          <a href="{% url 'edit_user' name=user.name %}" class="btn btn-primary">Edit User</a>
+          <a href="{% url 'delete_user' name=user.name %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?');">Delete User</a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock content %}
+
+
